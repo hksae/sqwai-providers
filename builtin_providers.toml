@@ -1,7 +1,7 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 6
+serial = 7
 updated_at = "2026-10-19"
 
 # Gemini
@@ -2020,6 +2020,12 @@ id = "reflection/beam-1.0-501b-a23b"
 context = 1048576
 effort = "medium"
 
+[models."inception/mercury-3"]
+provider = "openrouter"
+id = "inception/mercury-3"
+context = 1000000
+effort = "medium"
+
 [models."unbiased/pareto-26.10"]
 provider = "openrouter"
 id = "unbiased/pareto-26.10"
@@ -2462,11 +2468,5 @@ effort = "medium"
 provider = "openrouter"
 id = "nvidia/nemotron-3.5-lightning"
 context = 262144
-effort = "medium"
-
-[models."liquid/lfm-2.5-2.6b:free"]
-provider = "openrouter"
-id = "liquid/lfm-2.5-2.6b:free"
-context = 65536
 effort = "medium"
 
