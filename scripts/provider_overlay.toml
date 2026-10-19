@@ -1,0 +1,16 @@
+# Optional manual overrides or extra pinned models on top of models.dev.
+#
+# [openai]
+# "gpt-6.1-sol" = { context = 922000, effort = "high" }
+
+[gemini]
+
+[anthropic]
+
+[openai]
+
+[deepseek]
+
+[grok]
+
+[kimi]
