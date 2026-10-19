@@ -392,31 +392,18 @@ def collapse_dated_snapshots(models_dict):
 
 def resolve_effort(m):
     mid = m["id"]
-    low = mid.lower()
     reasoning = bool(m.get("reasoning", False))
     if not reasoning:
-        return "off", None, False
+        return "off"
 
     ropts = m.get("reasoning_options")
-    # Pick default effort level based on model tier and supported effort values
     allowed_efforts = set()
-    has_effort_opt = False
-    has_budget_opt = False
-    has_toggle_opt = False
     if isinstance(ropts, list):
         for opt in ropts:
-            if not isinstance(opt, dict):
-                continue
-            otype = opt.get("type")
-            if otype == "effort":
-                has_effort_opt = True
+            if isinstance(opt, dict) and opt.get("type") == "effort":
                 for v in opt.get("values") or []:
                     if isinstance(v, str):
                         allowed_efforts.add(v)
-            elif otype == "budget_tokens":
-                has_budget_opt = True
-            elif otype == "toggle":
-                has_toggle_opt = True
 
     if has_token_hint(mid, EFFORT_HIGH_HINTS):
         default_effort = "high"
@@ -425,24 +412,13 @@ def resolve_effort(m):
     else:
         default_effort = "medium"
 
-    if allowed_efforts:
-        if default_effort not in allowed_efforts:
-            for fallback in ("high", "medium", "low", "max"):
-                if fallback in allowed_efforts:
-                    default_effort = fallback
-                    break
+    if allowed_efforts and default_effort not in allowed_efforts:
+        for fallback in ("high", "medium", "low", "max"):
+            if fallback in allowed_efforts:
+                default_effort = fallback
+                break
 
-    effort_control = None
-    effort_always_on = False
-    if isinstance(ropts, list):
-        if len(ropts) == 0:
-            # Empty reasoning_options in models.dev means always-on reasoning with no caller control
-            effort_control = "none"
-            effort_always_on = True
-        elif has_toggle_opt and not has_effort_opt and not has_budget_opt:
-            effort_control = "toggle"
-
-    return default_effort, effort_control, effort_always_on
+    return default_effort
 
 
 def build_catalog(data, today, serial, overlay):
@@ -521,18 +497,14 @@ def build_catalog(data, today, serial, overlay):
                 ospec = m["_overlay"]
                 ctx = ospec["context"]
                 effort = ospec["effort"]
-                effort_control = ospec.get("effort_control")
-                effort_always_on = ospec.get("effort_always_on", False)
             elif mid in prov_overlay:
                 ospec = prov_overlay[mid]
                 ctx = ospec["context"]
                 effort = ospec["effort"]
-                effort_control = ospec.get("effort_control")
-                effort_always_on = ospec.get("effort_always_on", False)
             else:
                 limit = m.get("limit") or {}
                 ctx = int(limit.get("context") or limit.get("input") or 128000)
-                effort, effort_control, effort_always_on = resolve_effort(m)
+                effort = resolve_effort(m)
 
             # First-party / unique models keep their bare ID as key; if a relay
             # provider serves the same model ID, namespace the TOML key with
@@ -547,12 +519,8 @@ def build_catalog(data, today, serial, overlay):
                 f'id = "{mid}"',
                 f"context = {ctx}",
                 f'effort = "{effort}"',
+                "",
             ]
-            if effort_control:
-                lines.append(f'effort_control = "{effort_control}"')
-            if effort_always_on:
-                lines.append("effort_always_on = true")
-            lines.append("")
 
     if provider_count < 6 or total_models < 50:
         print(
