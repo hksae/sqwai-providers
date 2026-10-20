@@ -1,8 +1,8 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 7
-updated_at = "2026-10-19"
+serial = 8
+updated_at = "2026-10-20"
 
 # Gemini
 [providers.gemini]
@@ -407,13 +407,13 @@ continuation = true
 [models."deepseek-flash"]
 provider = "deepseek"
 id = "deepseek-flash"
-context = 1000000
+context = 1048576
 effort = "high"
 
 [models."deepseek-v4-pro"]
 provider = "deepseek"
 id = "deepseek-v4-pro"
-context = 1000000
+context = 1048576
 effort = "high"
 
 # Grok
@@ -543,7 +543,7 @@ effort = "medium"
 provider = "alibaba"
 id = "glm-5.2"
 context = 1000000
-effort = "medium"
+effort = "high"
 
 [models."qwen3.7-plus"]
 provider = "alibaba"
@@ -568,12 +568,6 @@ provider = "alibaba"
 id = "qwen3.6-27b"
 context = 262144
 effort = "medium"
-
-[models."qwen3.6-max-preview"]
-provider = "alibaba"
-id = "qwen3.6-max-preview"
-context = 262144
-effort = "high"
 
 [models."qwen3.6-35b-a3b"]
 provider = "alibaba"
@@ -629,29 +623,11 @@ id = "qwen3-vl-plus"
 context = 262144
 effort = "medium"
 
-[models."qwen3-max"]
-provider = "alibaba"
-id = "qwen3-max"
-context = 262144
-effort = "off"
-
 [models."qwen3-omni-flash"]
 provider = "alibaba"
 id = "qwen3-omni-flash"
 context = 65536
 effort = "medium"
-
-[models."qwen3-next-80b-a3b-thinking"]
-provider = "alibaba"
-id = "qwen3-next-80b-a3b-thinking"
-context = 131072
-effort = "high"
-
-[models."qwen3-next-80b-a3b-instruct"]
-provider = "alibaba"
-id = "qwen3-next-80b-a3b-instruct"
-context = 131072
-effort = "off"
 
 [models."qwen3-coder-flash"]
 provider = "alibaba"
@@ -665,142 +641,16 @@ id = "qwen-flash"
 context = 1000000
 effort = "medium"
 
-[models."qwen3-coder-plus"]
-provider = "alibaba"
-id = "qwen3-coder-plus"
-context = 1048576
-effort = "off"
-
 [models."qwen3-vl-30b-a3b"]
 provider = "alibaba"
 id = "qwen3-vl-30b-a3b"
 context = 131072
 effort = "medium"
 
-[models."qwen3-vl-235b-a22b"]
-provider = "alibaba"
-id = "qwen3-vl-235b-a22b"
-context = 131072
-effort = "medium"
-
-[models."qwen3-coder-480b-a35b-instruct"]
-provider = "alibaba"
-id = "qwen3-coder-480b-a35b-instruct"
-context = 262144
-effort = "off"
-
-[models."qwen3-coder-30b-a3b-instruct"]
-provider = "alibaba"
-id = "qwen3-coder-30b-a3b-instruct"
-context = 262144
-effort = "off"
-
-[models."qwen3-8b"]
-provider = "alibaba"
-id = "qwen3-8b"
-context = 131072
-effort = "medium"
-
-[models."qwen3-32b"]
-provider = "alibaba"
-id = "qwen3-32b"
-context = 131072
-effort = "medium"
-
-[models."qwen3-235b-a22b"]
-provider = "alibaba"
-id = "qwen3-235b-a22b"
-context = 131072
-effort = "medium"
-
-[models."qwen3-14b"]
-provider = "alibaba"
-id = "qwen3-14b"
-context = 131072
-effort = "medium"
-
-[models."qvq-max"]
-provider = "alibaba"
-id = "qvq-max"
-context = 131072
-effort = "high"
-
-[models."qwq-plus"]
-provider = "alibaba"
-id = "qwq-plus"
-context = 131072
-effort = "high"
-
-[models."qwen-omni-turbo"]
-provider = "alibaba"
-id = "qwen-omni-turbo"
-context = 32768
-effort = "off"
-
-[models."qwen2-5-omni-7b"]
-provider = "alibaba"
-id = "qwen2-5-omni-7b"
-context = 32768
-effort = "off"
-
-[models."qwen-turbo"]
-provider = "alibaba"
-id = "qwen-turbo"
-context = 1000000
-effort = "medium"
-
-[models."qwen2-5-vl-7b-instruct"]
-provider = "alibaba"
-id = "qwen2-5-vl-7b-instruct"
-context = 131072
-effort = "off"
-
-[models."qwen2-5-vl-72b-instruct"]
-provider = "alibaba"
-id = "qwen2-5-vl-72b-instruct"
-context = 131072
-effort = "off"
-
-[models."qwen2-5-7b-instruct"]
-provider = "alibaba"
-id = "qwen2-5-7b-instruct"
-context = 131072
-effort = "off"
-
-[models."qwen2-5-72b-instruct"]
-provider = "alibaba"
-id = "qwen2-5-72b-instruct"
-context = 131072
-effort = "off"
-
-[models."qwen2-5-32b-instruct"]
-provider = "alibaba"
-id = "qwen2-5-32b-instruct"
-context = 131072
-effort = "off"
-
-[models."qwen2-5-14b-instruct"]
-provider = "alibaba"
-id = "qwen2-5-14b-instruct"
-context = 131072
-effort = "off"
-
-[models."qwen-vl-max"]
-provider = "alibaba"
-id = "qwen-vl-max"
-context = 131072
-effort = "off"
-
 [models."qwen-max"]
 provider = "alibaba"
 id = "qwen-max"
 context = 32768
-effort = "off"
-
-[models."qwen-vl-plus"]
-provider = "alibaba"
-id = "qwen-vl-plus"
-context = 131072
 effort = "off"
 
 [models."qwen-plus"]
@@ -941,42 +791,6 @@ effort = "medium"
 provider = "minimax"
 id = "MiniMax-M3"
 context = 1000000
-effort = "medium"
-
-[models."MiniMax-M2.7-highspeed"]
-provider = "minimax"
-id = "MiniMax-M2.7-highspeed"
-context = 204800
-effort = "medium"
-
-[models."MiniMax-M2.7"]
-provider = "minimax"
-id = "MiniMax-M2.7"
-context = 204800
-effort = "medium"
-
-[models."MiniMax-M2.5-highspeed"]
-provider = "minimax"
-id = "MiniMax-M2.5-highspeed"
-context = 204800
-effort = "medium"
-
-[models."MiniMax-M2.5"]
-provider = "minimax"
-id = "MiniMax-M2.5"
-context = 204800
-effort = "medium"
-
-[models."MiniMax-M2.1"]
-provider = "minimax"
-id = "MiniMax-M2.1"
-context = 204800
-effort = "medium"
-
-[models."MiniMax-M2"]
-provider = "minimax"
-id = "MiniMax-M2"
-context = 204800
 effort = "medium"
 
 # Mistral
@@ -1790,6 +1604,12 @@ id = "deepseek-ai/DeepSeek-R1-0528"
 context = 163840
 effort = "high"
 
+[models."Qwen/Qwen3-32B"]
+provider = "deepinfra"
+id = "Qwen/Qwen3-32B"
+context = 40960
+effort = "medium"
+
 [models."Qwen/Qwen3-30B-A3B"]
 provider = "deepinfra"
 id = "Qwen/Qwen3-30B-A3B"
@@ -1801,12 +1621,6 @@ provider = "deepinfra"
 id = "meta-llama/Llama-4-Scout-17B-16E-Instruct"
 context = 327680
 effort = "off"
-
-[models."Qwen/Qwen3-32B"]
-provider = "deepinfra"
-id = "Qwen/Qwen3-32B"
-context = 40960
-effort = "medium"
 
 [models."google/gemma-3-4b-it"]
 provider = "deepinfra"
@@ -2014,12 +1828,6 @@ id = "xingchen-agi/xing4.0-29b-a4b:free"
 context = 262144
 effort = "medium"
 
-[models."reflection/beam-1.0-501b-a23b"]
-provider = "openrouter"
-id = "reflection/beam-1.0-501b-a23b"
-context = 1048576
-effort = "medium"
-
 [models."inception/mercury-3"]
 provider = "openrouter"
 id = "inception/mercury-3"
@@ -2092,16 +1900,10 @@ id = "mistralai/mistral-large-4-0"
 context = 1048576
 effort = "high"
 
-[models."google/gemini-nano-banana-2.1"]
+[models."reflection/beam-1.0-501b-a23b"]
 provider = "openrouter"
-id = "google/gemini-nano-banana-2.1"
-context = 65536
-effort = "high"
-
-[models."inclusionai/ling-3.1-flash"]
-provider = "openrouter"
-id = "inclusionai/ling-3.1-flash"
-context = 262144
+id = "reflection/beam-1.0-501b-a23b"
+context = 1048576
 effort = "medium"
 
 [models."openai/gpt-6.1-sol-pro"]
@@ -2116,6 +1918,12 @@ id = "openai/gpt-6.1-sol"
 context = 1050000
 effort = "high"
 
+[models."inclusionai/ling-3.1-flash"]
+provider = "openrouter"
+id = "inclusionai/ling-3.1-flash"
+context = 262144
+effort = "medium"
+
 [models."anthropic/claude-sonnet-5.5"]
 provider = "openrouter"
 id = "anthropic/claude-sonnet-5.5"
@@ -2128,23 +1936,11 @@ id = "perceptron/perceptron-mk1.5"
 context = 36864
 effort = "medium"
 
-[models."fireworks/ember-1"]
-provider = "openrouter"
-id = "fireworks/ember-1"
-context = 1048576
-effort = "high"
-
 [models."z-ai/glm-5.3-prime"]
 provider = "openrouter"
 id = "z-ai/glm-5.3-prime"
 context = 1000000
 effort = "high"
-
-[models."upstage/solar-mini4"]
-provider = "openrouter"
-id = "upstage/solar-mini4"
-context = 524288
-effort = "medium"
 
 [models."qwen/qwen3.8-max-prime"]
 provider = "openrouter"
@@ -2176,6 +1972,12 @@ id = "xiaomi/mimo-v2.6-flash"
 context = 1050000
 effort = "medium"
 
+[models."upstage/solar-mini4"]
+provider = "openrouter"
+id = "upstage/solar-mini4"
+context = 524288
+effort = "medium"
+
 [models."openai/gpt-6-sol-pro"]
 provider = "openrouter"
 id = "openai/gpt-6-sol-pro"
@@ -2200,11 +2002,11 @@ id = "openai/gpt-6-luna"
 context = 1050000
 effort = "low"
 
-[models."cohere/command-a-plus"]
+[models."fireworks/ember-1"]
 provider = "openrouter"
-id = "cohere/command-a-plus"
-context = 192000
-effort = "medium"
+id = "fireworks/ember-1"
+context = 1048576
+effort = "high"
 
 [models."anthropic/claude-opus-5.5"]
 provider = "openrouter"
@@ -2362,12 +2164,6 @@ id = "anthropic/claude-fable-5.1"
 context = 1000000
 effort = "high"
 
-[models."ibm-granite/granite-4.2-8b"]
-provider = "openrouter"
-id = "ibm-granite/granite-4.2-8b"
-context = 131072
-effort = "high"
-
 [models."tencent/hy4-preview"]
 provider = "openrouter"
 id = "tencent/hy4-preview"
@@ -2391,6 +2187,12 @@ provider = "openrouter"
 id = "qwen/qwen3.8-flash"
 context = 1000000
 effort = "medium"
+
+[models."ibm-granite/granite-4.2-8b"]
+provider = "openrouter"
+id = "ibm-granite/granite-4.2-8b"
+context = 131072
+effort = "high"
 
 [models."meta/muse-spark-1.2-contributor"]
 provider = "openrouter"
@@ -2422,17 +2224,17 @@ id = "qwen/qwen3.8-27b"
 context = 1000000
 effort = "medium"
 
-[models."dots-studio/dots-3-note-preview:free"]
-provider = "openrouter"
-id = "dots-studio/dots-3-note-preview:free"
-context = 512000
-effort = "medium"
-
 [models."google/gemini-3.7-flash"]
 provider = "openrouter"
 id = "google/gemini-3.7-flash"
 context = 1048576
 effort = "medium"
+
+[models."deepseek/deepseek-v4-pro-0813"]
+provider = "openrouter"
+id = "deepseek/deepseek-v4-pro-0813"
+context = 1048576
+effort = "high"
 
 [models."x-ai/grok-4.6"]
 provider = "openrouter"
@@ -2446,18 +2248,6 @@ id = "qwen/qwen3.8-2.4t-a95b"
 context = 1048576
 effort = "medium"
 
-[models."deepseek/deepseek-v4-pro-0813"]
-provider = "openrouter"
-id = "deepseek/deepseek-v4-pro-0813"
-context = 1048576
-effort = "high"
-
-[models."bytedance-seed/seed-2-1-turbo"]
-provider = "openrouter"
-id = "bytedance-seed/seed-2-1-turbo"
-context = 262144
-effort = "medium"
-
 [models."nvidia/nemotron-3.5-lightning:free"]
 provider = "openrouter"
 id = "nvidia/nemotron-3.5-lightning:free"
@@ -2468,5 +2258,29 @@ effort = "medium"
 provider = "openrouter"
 id = "nvidia/nemotron-3.5-lightning"
 context = 262144
+effort = "medium"
+
+[models."liquid/lfm-2.5-2.6b:free"]
+provider = "openrouter"
+id = "liquid/lfm-2.5-2.6b:free"
+context = 65536
+effort = "medium"
+
+[models."openrouter/meta/muse-glimmer-30b"]
+provider = "openrouter"
+id = "meta/muse-glimmer-30b"
+context = 131072
+effort = "medium"
+
+[models."upstage/solar-pro4"]
+provider = "openrouter"
+id = "upstage/solar-pro4"
+context = 524288
+effort = "medium"
+
+[models."meta/muse-spark-1.2"]
+provider = "openrouter"
+id = "meta/muse-spark-1.2"
+context = 1048576
 effort = "medium"
 
