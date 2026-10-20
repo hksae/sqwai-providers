@@ -1,7 +1,7 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 8
+serial = 9
 updated_at = "2026-10-20"
 
 # Gemini
@@ -76,6 +76,12 @@ provider = "gemini"
 id = "gemma-4-26b-a4b-it"
 context = 262144
 effort = "medium"
+
+[models."gemini-pro-latest"]
+provider = "gemini"
+id = "gemini-pro-latest"
+context = 1048576
+effort = "high"
 
 [models."gemini-3.1-pro-preview-customtools"]
 provider = "gemini"
