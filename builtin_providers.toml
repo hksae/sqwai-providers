@@ -1,7 +1,7 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 10
+serial = 11
 updated_at = "2026-10-21"
 
 # Gemini
@@ -1635,12 +1635,6 @@ id = "meta/muse-glimmer-30b"
 context = 131072
 effort = "medium"
 
-[models."moonshotai/kimi-k3"]
-provider = "nvidia"
-id = "moonshotai/kimi-k3"
-context = 1048576
-effort = "high"
-
 [models."poolside/laguna-xs-2.1"]
 provider = "nvidia"
 id = "poolside/laguna-xs-2.1"
@@ -1677,47 +1671,11 @@ id = "nvidia/nemotron-voicechat"
 context = 128000
 effort = "off"
 
-[models."nvidia/cosmos-reason2-8b"]
-provider = "nvidia"
-id = "nvidia/cosmos-reason2-8b"
-context = 131072
-effort = "medium"
-
 [models."nvidia/openai/gpt-oss-20b"]
 provider = "nvidia"
 id = "openai/gpt-oss-20b"
 context = 131072
 effort = "medium"
-
-[models."nvidia/llama-3.1-nemotron-70b-instruct"]
-provider = "nvidia"
-id = "nvidia/llama-3.1-nemotron-70b-instruct"
-context = 128000
-effort = "off"
-
-[models."nvidia/llama-3.1-nemotron-ultra-253b-v1"]
-provider = "nvidia"
-id = "nvidia/llama-3.1-nemotron-ultra-253b-v1"
-context = 128000
-effort = "medium"
-
-[models."mistralai/mistral-7b-instruct-v0.3"]
-provider = "nvidia"
-id = "mistralai/mistral-7b-instruct-v0.3"
-context = 65536
-effort = "off"
-
-[models."nvidia/google/gemma-3-4b-it"]
-provider = "nvidia"
-id = "google/gemma-3-4b-it"
-context = 131072
-effort = "off"
-
-[models."nvidia/google/gemma-3-12b-it"]
-provider = "nvidia"
-id = "google/gemma-3-12b-it"
-context = 131072
-effort = "off"
 
 [models."meta/llama-3.2-90b-vision-instruct"]
 provider = "nvidia"
