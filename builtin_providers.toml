@@ -1,7 +1,7 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 11
+serial = 12
 updated_at = "2026-10-21"
 
 # Gemini
@@ -1696,6 +1696,12 @@ base_url = "https://openrouter.ai/api/v1"
 api_key_env = "OPENROUTER_API_KEY"
 continuation = true
 
+[models."recursive/flint-v1.0:free"]
+provider = "openrouter"
+id = "recursive/flint-v1.0:free"
+context = 262144
+effort = "medium"
+
 [models."minimax/minimax-m3.1-flash:free"]
 provider = "openrouter"
 id = "minimax/minimax-m3.1-flash:free"
@@ -2168,11 +2174,5 @@ effort = "medium"
 provider = "openrouter"
 id = "upstage/solar-pro4"
 context = 524288
-effort = "medium"
-
-[models."meta/muse-spark-1.2"]
-provider = "openrouter"
-id = "meta/muse-spark-1.2"
-context = 1048576
 effort = "medium"
 
