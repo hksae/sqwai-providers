@@ -1,8 +1,8 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 9
-updated_at = "2026-10-20"
+serial = 10
+updated_at = "2026-10-21"
 
 # Gemini
 [providers.gemini]
@@ -991,12 +991,6 @@ continuation = true
 [models."qwen/qwen3.8-27b"]
 provider = "groq"
 id = "qwen/qwen3.8-27b"
-context = 131042
-effort = "medium"
-
-[models."qwen/qwen3.6-27b"]
-provider = "groq"
-id = "qwen/qwen3.6-27b"
 context = 131072
 effort = "medium"
 
@@ -1011,18 +1005,6 @@ provider = "groq"
 id = "openai/gpt-oss-120b"
 context = 131072
 effort = "medium"
-
-[models."llama-3.3-70b-versatile"]
-provider = "groq"
-id = "llama-3.3-70b-versatile"
-context = 131072
-effort = "off"
-
-[models."llama-3.1-8b-instant"]
-provider = "groq"
-id = "llama-3.1-8b-instant"
-context = 131072
-effort = "off"
 
 # Cerebras
 [providers.cerebras]
@@ -1083,18 +1065,12 @@ effort = "high"
 [models."zai-org/GLM-5.3"]
 provider = "togetherai"
 id = "zai-org/GLM-5.3"
-context = 1048576
+context = 1048575
 effort = "high"
 
 [models."deepseek-ai/DeepSeek-V4-Pro-0813"]
 provider = "togetherai"
 id = "deepseek-ai/DeepSeek-V4-Pro-0813"
-context = 1048576
-effort = "high"
-
-[models."deepseek-ai/DeepSeek-V4-Flash-0731"]
-provider = "togetherai"
-id = "deepseek-ai/DeepSeek-V4-Flash-0731"
 context = 1048576
 effort = "high"
 
@@ -1122,28 +1098,16 @@ id = "MiniMaxAI/MiniMax-M3"
 context = 524288
 effort = "medium"
 
-[models."nvidia/nemotron-3-ultra-550b-a55b"]
-provider = "togetherai"
-id = "nvidia/nemotron-3-ultra-550b-a55b"
-context = 512300
-effort = "medium"
-
 [models."Qwen/Qwen3.7-Max"]
 provider = "togetherai"
 id = "Qwen/Qwen3.7-Max"
 context = 1000000
-effort = "off"
+effort = "high"
 
 [models."Qwen/Qwen3.6-Plus"]
 provider = "togetherai"
 id = "Qwen/Qwen3.6-Plus"
 context = 1000000
-effort = "medium"
-
-[models."MiniMaxAI/MiniMax-M2.7"]
-provider = "togetherai"
-id = "MiniMaxAI/MiniMax-M2.7"
-context = 196608
 effort = "medium"
 
 [models."Qwen/Qwen3.5-9B"]
@@ -1158,24 +1122,18 @@ id = "openai/gpt-oss-120b"
 context = 131072
 effort = "medium"
 
-[models."meta-llama/Llama-3.3-70B-Instruct-Turbo"]
-provider = "togetherai"
-id = "meta-llama/Llama-3.3-70B-Instruct-Turbo"
-context = 131072
-effort = "off"
-
-[models."Qwen/Qwen2.5-7B-Instruct-Turbo"]
-provider = "togetherai"
-id = "Qwen/Qwen2.5-7B-Instruct-Turbo"
-context = 32768
-effort = "off"
-
 # Fireworks AI
 [providers.fireworks]
 format = "openai"
 base_url = "https://api.fireworks.ai/inference/v1"
 api_key_env = "FIREWORKS_API_KEY"
 continuation = true
+
+[models."accounts/fireworks/routers/deepseek-flash-latest"]
+provider = "fireworks"
+id = "accounts/fireworks/routers/deepseek-flash-latest"
+context = 1000000
+effort = "high"
 
 [models."accounts/fireworks/models/deepseek-v4p1-flash-1017"]
 provider = "fireworks"
@@ -1195,28 +1153,10 @@ id = "accounts/fireworks/models/ember-1"
 context = 1048576
 effort = "medium"
 
-[models."accounts/fireworks/routers/deepseek-flash-latest"]
-provider = "fireworks"
-id = "accounts/fireworks/routers/deepseek-flash-latest"
-context = 1000000
-effort = "high"
-
 [models."accounts/fireworks/models/deepseek-v4p1-flash"]
 provider = "fireworks"
 id = "accounts/fireworks/models/deepseek-v4p1-flash"
 context = 1000000
-effort = "high"
-
-[models."accounts/fireworks/routers/glm-fast-latest"]
-provider = "fireworks"
-id = "accounts/fireworks/routers/glm-fast-latest"
-context = 1048572
-effort = "high"
-
-[models."accounts/fireworks/routers/glm-5p3-fast"]
-provider = "fireworks"
-id = "accounts/fireworks/routers/glm-5p3-fast"
-context = 1048572
 effort = "high"
 
 [models."accounts/fireworks/routers/glm-flash-latest"]
@@ -1237,6 +1177,18 @@ id = "accounts/fireworks/routers/glm-latest"
 context = 1048573
 effort = "high"
 
+[models."accounts/fireworks/routers/glm-fast-latest"]
+provider = "fireworks"
+id = "accounts/fireworks/routers/glm-fast-latest"
+context = 1048572
+effort = "high"
+
+[models."accounts/fireworks/routers/glm-5p3-fast"]
+provider = "fireworks"
+id = "accounts/fireworks/routers/glm-5p3-fast"
+context = 1048572
+effort = "high"
+
 [models."accounts/fireworks/models/glm-5p3"]
 provider = "fireworks"
 id = "accounts/fireworks/models/glm-5p3"
@@ -1246,12 +1198,6 @@ effort = "high"
 [models."accounts/fireworks/models/qwen3p8-2p4t-a95b"]
 provider = "fireworks"
 id = "accounts/fireworks/models/qwen3p8-2p4t-a95b"
-context = 262144
-effort = "medium"
-
-[models."accounts/fireworks/models/nemotron-lightning-3p5-30b-a3b"]
-provider = "fireworks"
-id = "accounts/fireworks/models/nemotron-lightning-3p5-30b-a3b"
 context = 262144
 effort = "medium"
 
@@ -1291,12 +1237,6 @@ id = "accounts/fireworks/models/kimi-k3"
 context = 1048576
 effort = "high"
 
-[models."accounts/fireworks/models/inkling"]
-provider = "fireworks"
-id = "accounts/fireworks/models/inkling"
-context = 1048576
-effort = "medium"
-
 [models."accounts/fireworks/routers/minimax-latest"]
 provider = "fireworks"
 id = "accounts/fireworks/routers/minimax-latest"
@@ -1307,18 +1247,6 @@ effort = "medium"
 provider = "fireworks"
 id = "accounts/fireworks/models/minimax-m3"
 context = 512000
-effort = "medium"
-
-[models."accounts/fireworks/models/nemotron-3-ultra-nvfp4"]
-provider = "fireworks"
-id = "accounts/fireworks/models/nemotron-3-ultra-nvfp4"
-context = 262144
-effort = "medium"
-
-[models."accounts/fireworks/models/gpt-oss-120b"]
-provider = "fireworks"
-id = "accounts/fireworks/models/gpt-oss-120b"
-context = 131072
 effort = "medium"
 
 # Deep Infra
@@ -1406,11 +1334,11 @@ id = "Qwen/Qwen3.8-Max"
 context = 256000
 effort = "off"
 
-[models."deepinfra/deepseek-ai/DeepSeek-V4-Flash-0731"]
+[models."deepseek-ai/DeepSeek-V4-Flash-0731"]
 provider = "deepinfra"
 id = "deepseek-ai/DeepSeek-V4-Flash-0731"
 context = 1048576
-effort = "medium"
+effort = "high"
 
 [models."thinkingmachines/Inkling-Small"]
 provider = "deepinfra"
@@ -1434,7 +1362,7 @@ effort = "medium"
 provider = "deepinfra"
 id = "zai-org/GLM-5.2"
 context = 1048576
-effort = "medium"
+effort = "high"
 
 [models."anthropic/claude-fable-5"]
 provider = "deepinfra"
@@ -1464,7 +1392,7 @@ effort = "high"
 provider = "deepinfra"
 id = "deepseek-ai/DeepSeek-V4-Flash"
 context = 1048576
-effort = "medium"
+effort = "high"
 
 [models."Qwen/Qwen3.6-27B"]
 provider = "deepinfra"
@@ -1475,6 +1403,12 @@ effort = "medium"
 [models."moonshotai/Kimi-K2.6"]
 provider = "deepinfra"
 id = "moonshotai/Kimi-K2.6"
+context = 262144
+effort = "medium"
+
+[models."Qwen/Qwen3.6-35B-A3B"]
+provider = "deepinfra"
+id = "Qwen/Qwen3.6-35B-A3B"
 context = 262144
 effort = "medium"
 
@@ -1490,21 +1424,27 @@ id = "google/gemma-4-26B-A4B-it"
 context = 262144
 effort = "medium"
 
-[models."Qwen/Qwen3.6-35B-A3B"]
-provider = "deepinfra"
-id = "Qwen/Qwen3.6-35B-A3B"
-context = 262144
-effort = "medium"
-
 [models."deepinfra/Qwen/Qwen3.5-9B"]
 provider = "deepinfra"
 id = "Qwen/Qwen3.5-9B"
 context = 262144
 effort = "medium"
 
+[models."Qwen/Qwen3.5-35B-A3B"]
+provider = "deepinfra"
+id = "Qwen/Qwen3.5-35B-A3B"
+context = 262144
+effort = "medium"
+
 [models."Qwen/Qwen3.5-27B"]
 provider = "deepinfra"
 id = "Qwen/Qwen3.5-27B"
+context = 262144
+effort = "medium"
+
+[models."Qwen/Qwen3.5-397B-A17B"]
+provider = "deepinfra"
+id = "Qwen/Qwen3.5-397B-A17B"
 context = 262144
 effort = "medium"
 
@@ -1524,18 +1464,6 @@ effort = "low"
 provider = "deepinfra"
 id = "ByteDance/Seed-2.0-code"
 context = 256000
-effort = "medium"
-
-[models."Qwen/Qwen3.5-397B-A17B"]
-provider = "deepinfra"
-id = "Qwen/Qwen3.5-397B-A17B"
-context = 262144
-effort = "medium"
-
-[models."Qwen/Qwen3.5-35B-A3B"]
-provider = "deepinfra"
-id = "Qwen/Qwen3.5-35B-A3B"
-context = 262144
 effort = "medium"
 
 [models."zai-org/GLM-4.7"]
@@ -1652,7 +1580,7 @@ id = "deepseek-ai/DeepSeek-V3"
 context = 163840
 effort = "off"
 
-[models."deepinfra/meta-llama/Llama-3.3-70B-Instruct-Turbo"]
+[models."meta-llama/Llama-3.3-70B-Instruct-Turbo"]
 provider = "deepinfra"
 id = "meta-llama/Llama-3.3-70B-Instruct-Turbo"
 context = 131072
@@ -1725,7 +1653,7 @@ id = "google/diffusiongemma-26b-a4b-it"
 context = 250000
 effort = "medium"
 
-[models."nvidia/nvidia/nemotron-3-ultra-550b-a55b"]
+[models."nvidia/nemotron-3-ultra-550b-a55b"]
 provider = "nvidia"
 id = "nvidia/nemotron-3-ultra-550b-a55b"
 context = 1000000
