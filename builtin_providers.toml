@@ -1,7 +1,7 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 14
+serial = 15
 updated_at = "2026-10-22"
 
 # Gemini
@@ -1230,6 +1230,12 @@ provider = "fireworks"
 id = "accounts/fireworks/routers/kimi-latest"
 context = 1048576
 effort = "medium"
+
+[models."accounts/fireworks/routers/kimi-k3-spot"]
+provider = "fireworks"
+id = "accounts/fireworks/routers/kimi-k3-spot"
+context = 1048576
+effort = "high"
 
 [models."accounts/fireworks/routers/kimi-k3-fast"]
 provider = "fireworks"
