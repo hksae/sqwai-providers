@@ -1,8 +1,8 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 12
-updated_at = "2026-10-21"
+serial = 13
+updated_at = "2026-10-22"
 
 # Gemini
 [providers.gemini]
@@ -1351,12 +1351,6 @@ provider = "deepinfra"
 id = "moonshotai/Kimi-K3"
 context = 1048576
 effort = "high"
-
-[models."deepinfra/thinkingmachines/Inkling"]
-provider = "deepinfra"
-id = "thinkingmachines/Inkling"
-context = 524288
-effort = "medium"
 
 [models."deepinfra/zai-org/GLM-5.2"]
 provider = "deepinfra"
