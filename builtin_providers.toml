@@ -1,7 +1,7 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 13
+serial = 14
 updated_at = "2026-10-22"
 
 # Gemini
@@ -1153,6 +1153,12 @@ id = "accounts/fireworks/models/ember-1"
 context = 1048576
 effort = "medium"
 
+[models."accounts/fireworks/routers/deepseek-v4p1-flash-spot"]
+provider = "fireworks"
+id = "accounts/fireworks/routers/deepseek-v4p1-flash-spot"
+context = 1000000
+effort = "high"
+
 [models."accounts/fireworks/models/deepseek-v4p1-flash"]
 provider = "fireworks"
 id = "accounts/fireworks/models/deepseek-v4p1-flash"
@@ -1181,6 +1187,12 @@ effort = "high"
 provider = "fireworks"
 id = "accounts/fireworks/routers/glm-fast-latest"
 context = 1048572
+effort = "high"
+
+[models."accounts/fireworks/routers/glm-5p3-spot"]
+provider = "fireworks"
+id = "accounts/fireworks/routers/glm-5p3-spot"
+context = 1048573
 effort = "high"
 
 [models."accounts/fireworks/routers/glm-5p3-fast"]
@@ -1696,9 +1708,9 @@ id = "recursive/flint-v1.0:free"
 context = 262144
 effort = "medium"
 
-[models."minimax/minimax-m3.1-flash:free"]
+[models."minimax/minimax-m3.1-flash"]
 provider = "openrouter"
-id = "minimax/minimax-m3.1-flash:free"
+id = "minimax/minimax-m3.1-flash"
 context = 1000000
 effort = "medium"
 
