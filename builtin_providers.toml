@@ -1,7 +1,7 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 17
+serial = 18
 updated_at = "2026-10-23"
 
 # Gemini
@@ -477,6 +477,18 @@ format = "openai"
 base_url = "https://api.moonshot.ai/v1"
 api_key_env = "MOONSHOT_API_KEY"
 continuation = true
+
+[models."kimi-k3.1-pro-highspeed"]
+provider = "kimi"
+id = "kimi-k3.1-pro-highspeed"
+context = 1048576
+effort = "high"
+
+[models."kimi-k3.1-pro"]
+provider = "kimi"
+id = "kimi-k3.1-pro"
+context = 1048576
+effort = "high"
 
 [models."kimi-k3"]
 provider = "kimi"
@@ -1732,6 +1744,12 @@ base_url = "https://openrouter.ai/api/v1"
 api_key_env = "OPENROUTER_API_KEY"
 continuation = true
 
+[models."moonshotai/kimi-k3.1-pro"]
+provider = "openrouter"
+id = "moonshotai/kimi-k3.1-pro"
+context = 1048576
+effort = "high"
+
 [models."recursive/flint-v1.0:free"]
 provider = "openrouter"
 id = "recursive/flint-v1.0:free"
@@ -2204,11 +2222,5 @@ effort = "medium"
 provider = "openrouter"
 id = "meta/muse-glimmer-30b"
 context = 131072
-effort = "medium"
-
-[models."upstage/solar-pro4"]
-provider = "openrouter"
-id = "upstage/solar-pro4"
-context = 524288
 effort = "medium"
 
