@@ -1,8 +1,8 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 15
-updated_at = "2026-10-22"
+serial = 16
+updated_at = "2026-10-23"
 
 # Gemini
 [providers.gemini]
@@ -812,6 +812,12 @@ id = "mistral-large-4"
 context = 1048576
 effort = "high"
 
+[models."zai-glm-5-3-flash"]
+provider = "mistral"
+id = "zai-glm-5-3-flash"
+context = 1048576
+effort = "high"
+
 [models."zai-glm-5-3"]
 provider = "mistral"
 id = "zai-glm-5-3"
@@ -1128,6 +1134,18 @@ format = "openai"
 base_url = "https://api.fireworks.ai/inference/v1"
 api_key_env = "FIREWORKS_API_KEY"
 continuation = true
+
+[models."accounts/fireworks/models/minimax-m3p1-flash"]
+provider = "fireworks"
+id = "accounts/fireworks/models/minimax-m3p1-flash"
+context = 1000000
+effort = "medium"
+
+[models."accounts/fireworks/routers/deepseek-v4p1-flash-1017-spot"]
+provider = "fireworks"
+id = "accounts/fireworks/routers/deepseek-v4p1-flash-1017-spot"
+context = 1000000
+effort = "high"
 
 [models."accounts/fireworks/routers/deepseek-flash-latest"]
 provider = "fireworks"
@@ -1717,7 +1735,7 @@ effort = "medium"
 [models."minimax/minimax-m3.1-flash"]
 provider = "openrouter"
 id = "minimax/minimax-m3.1-flash"
-context = 1000000
+context = 1048576
 effort = "medium"
 
 [models."elorian/glimpse"]
