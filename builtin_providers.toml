@@ -1,7 +1,7 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 16
+serial = 17
 updated_at = "2026-10-23"
 
 # Gemini
@@ -1622,6 +1622,12 @@ format = "openai"
 base_url = "https://integrate.api.nvidia.com/v1"
 api_key_env = "NVIDIA_API_KEY"
 continuation = true
+
+[models."minimaxai/minimax-m3.1-flash"]
+provider = "nvidia"
+id = "minimaxai/minimax-m3.1-flash"
+context = 262144
+effort = "medium"
 
 [models."nvidia/nemotron-3.5-super-vl-120b-a12b"]
 provider = "nvidia"
