@@ -1,8 +1,8 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 18
-updated_at = "2026-10-23"
+serial = 19
+updated_at = "2026-10-25"
 
 # Gemini
 [providers.gemini]
@@ -2218,9 +2218,9 @@ id = "liquid/lfm-2.5-2.6b:free"
 context = 65536
 effort = "medium"
 
-[models."openrouter/meta/muse-glimmer-30b"]
+[models."liquid/lfm-2.5-2.6b"]
 provider = "openrouter"
-id = "meta/muse-glimmer-30b"
-context = 131072
+id = "liquid/lfm-2.5-2.6b"
+context = 128000
 effort = "medium"
 
