@@ -1,8 +1,8 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 20
-updated_at = "2026-10-26"
+serial = 21
+updated_at = "2026-10-27"
 
 # Gemini
 [providers.gemini]
@@ -1750,6 +1750,12 @@ base_url = "https://openrouter.ai/api/v1"
 api_key_env = "OPENROUTER_API_KEY"
 continuation = true
 
+[models."openai/gpt-6.1-terra-pro"]
+provider = "openrouter"
+id = "openai/gpt-6.1-terra-pro"
+context = 1050000
+effort = "high"
+
 [models."openai/gpt-6.1-terra"]
 provider = "openrouter"
 id = "openai/gpt-6.1-terra"
@@ -2222,11 +2228,5 @@ effort = "medium"
 provider = "openrouter"
 id = "nvidia/nemotron-3.5-lightning"
 context = 262144
-effort = "medium"
-
-[models."liquid/lfm-2.5-2.6b:free"]
-provider = "openrouter"
-id = "liquid/lfm-2.5-2.6b:free"
-context = 65536
 effort = "medium"
 
