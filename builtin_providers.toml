@@ -1,7 +1,7 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 21
+serial = 22
 updated_at = "2026-10-27"
 
 # Gemini
@@ -1253,13 +1253,13 @@ effort = "medium"
 provider = "fireworks"
 id = "accounts/fireworks/routers/qwen-max-latest"
 context = 262144
-effort = "high"
+effort = "medium"
 
 [models."accounts/fireworks/models/qwen3p8-max"]
 provider = "fireworks"
 id = "accounts/fireworks/models/qwen3p8-max"
 context = 262144
-effort = "high"
+effort = "medium"
 
 [models."accounts/fireworks/routers/kimi-latest"]
 provider = "fireworks"
@@ -1798,6 +1798,12 @@ id = "xingchen-agi/xing4.0-29b-a4b:free"
 context = 262144
 effort = "medium"
 
+[models."prism-ml/ternary-bonsai-2-9b"]
+provider = "openrouter"
+id = "prism-ml/ternary-bonsai-2-9b"
+context = 262144
+effort = "medium"
+
 [models."inception/mercury-3"]
 provider = "openrouter"
 id = "inception/mercury-3"
@@ -2222,11 +2228,5 @@ effort = "medium"
 provider = "openrouter"
 id = "nvidia/nemotron-3.5-lightning:free"
 context = 1000000
-effort = "medium"
-
-[models."nvidia/nemotron-3.5-lightning"]
-provider = "openrouter"
-id = "nvidia/nemotron-3.5-lightning"
-context = 262144
 effort = "medium"
 
