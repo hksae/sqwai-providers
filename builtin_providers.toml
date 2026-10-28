@@ -1,7 +1,7 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 24
+serial = 25
 updated_at = "2026-10-28"
 
 # Gemini
@@ -759,6 +759,11 @@ format = "openai"
 base_url = "https://api.mistral.ai/v1"
 api_key_env = "MISTRAL_API_KEY"
 continuation = true
+
+[providers.mistral.models."deepseek-v4-1-flash-1017"]
+id = "deepseek-v4-1-flash-1017"
+context = 1048576
+effort = "high"
 
 [providers.mistral.models."mistral-large-4"]
 id = "mistral-large-4"
