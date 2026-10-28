@@ -19,6 +19,9 @@ Policy:
 - Reasoning effort (`off | low | medium | high | max`), `effort_control`, and
   `effort_always_on` are derived directly from `reasoning` and `reasoning_options`
   in models.dev, with optional manual overrides in `provider_overlay.toml`.
+- PDF input is copied from `modalities.input`: `pdf = true` only when the source
+  lists `pdf`. An absent field means "not declared", and the client denies PDFs
+  rather than paying for a request the provider would reject.
 - Freshness uses a monotonic `serial`: when catalog content changes, `serial`
   increments by 1. If nothing changed except the timestamp/serial stamps, the
   file is left untouched so git produces no empty commit.
@@ -390,6 +393,21 @@ def collapse_dated_snapshots(models_dict):
     return kept
 
 
+def supports_pdf(m):
+    """Whether models.dev lists `pdf` among the model's input modalities.
+
+    Only an explicit listing enables the capability: the client treats a
+    missing field as unsupported, so nothing is guessed from the provider.
+    """
+    modalities = m.get("modalities")
+    if not isinstance(modalities, dict):
+        return False
+    inputs = modalities.get("input")
+    if not isinstance(inputs, list):
+        return False
+    return any(str(x) == "pdf" for x in inputs)
+
+
 def resolve_effort(m):
     mid = m["id"]
     reasoning = bool(m.get("reasoning", False))
@@ -513,14 +531,19 @@ def build_catalog(data, today, serial, overlay):
             used_keys.add(key)
             total_models += 1
 
-            lines += [
+            entry = [
                 f'[models."{key}"]',
                 f'provider = "{pname}"',
                 f'id = "{mid}"',
                 f"context = {ctx}",
                 f'effort = "{effort}"',
-                "",
             ]
+            # Relay models that never appear in models.dev (overlay entries)
+            # have no modalities to read, so they stay undeclared.
+            if supports_pdf(m):
+                entry.append("pdf = true")
+            entry.append("")
+            lines += entry
 
     if provider_count < 6 or total_models < 50:
         print(
