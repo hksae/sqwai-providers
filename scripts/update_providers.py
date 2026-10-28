@@ -117,8 +117,9 @@ def has_token_hint(model_id, hints):
             return True
     return False
 
-# Pinned built-in providers in display priority order.
-# First-party labs come first so their canonical model IDs always claim unprefixed keys.
+# Pinned built-in providers in display priority order. First-party labs come
+# first because the client sorts its model menu by file order (newest release
+# at the cut), so the order here is the order users see.
 PROVIDERS_CONFIG = [
     {
         "name": "gemini",
@@ -449,7 +450,6 @@ def build_catalog(data, today, serial, overlay):
         "",
     ]
 
-    used_keys = set()
     total_models = 0
     provider_count = 0
 
@@ -524,16 +524,14 @@ def build_catalog(data, today, serial, overlay):
                 ctx = int(limit.get("context") or limit.get("input") or 128000)
                 effort = resolve_effort(m)
 
-            # First-party / unique models keep their bare ID as key; if a relay
-            # provider serves the same model ID, namespace the TOML key with
-            # `<provider>/<id>` while keeping `id = "<id>"` for wire requests.
-            key = mid if mid not in used_keys else f"{pname}/{mid}"
-            used_keys.add(key)
+            # Models nest inside their provider's table, so the key only has to
+            # be unique within that table: the same id served by two endpoints is
+            # two entries, and no hand-added `<provider>/` prefix is needed to
+            # dodge a clash. `id` stays exactly what the endpoint expects.
             total_models += 1
 
             entry = [
-                f'[models."{key}"]',
-                f'provider = "{pname}"',
+                f'[providers.{pname}.models."{mid}"]',
                 f'id = "{mid}"',
                 f"context = {ctx}",
                 f'effort = "{effort}"',
@@ -588,8 +586,13 @@ def main():
     # Validate generated TOML before atomic replace
     if tomllib is not None:
         parsed = tomllib.loads(content)
-        assert len(parsed.get("providers", {})) == prov_count
-        assert len(parsed.get("models", {})) == model_count
+        provs = parsed.get("providers", {})
+        assert len(provs) == prov_count
+        # Models belong to their provider's table now, so the count that matters
+        # is the sum over those tables — and a leftover top-level [models] would
+        # mean the writer and the reader disagree on where models live.
+        assert sum(len(p.get("models") or {}) for p in provs.values()) == model_count
+        assert not parsed.get("models"), "flat [models] table survived the nesting"
 
     tmp = f"{target}.tmp"
     with open(tmp, "w", encoding="utf-8") as f:
