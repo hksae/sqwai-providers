@@ -1,7 +1,7 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 27
+serial = 28
 updated_at = "2026-10-29"
 
 # Gemini
@@ -1489,11 +1489,6 @@ effort = "high"
 
 [providers.nvidia.models."z-ai/glm-5.3-flash"]
 id = "z-ai/glm-5.3-flash"
-context = 1000000
-effort = "high"
-
-[providers.nvidia.models."z-ai/glm-5.3"]
-id = "z-ai/glm-5.3"
 context = 1000000
 effort = "high"
 
