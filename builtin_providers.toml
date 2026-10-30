@@ -1,8 +1,8 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 28
-updated_at = "2026-10-29"
+serial = 29
+updated_at = "2026-10-30"
 
 # Gemini
 [providers.gemini]
@@ -765,10 +765,16 @@ id = "deepseek-v4-1-flash-1017"
 context = 1048576
 effort = "high"
 
+[providers.mistral.models."mistral-large-4-0-8"]
+id = "mistral-large-4-0-8"
+context = 1048576
+effort = "medium"
+pdf = true
+
 [providers.mistral.models."mistral-large-4"]
 id = "mistral-large-4"
 context = 1048576
-effort = "high"
+effort = "medium"
 pdf = true
 
 [providers.mistral.models."zai-glm-5-3-flash"]
