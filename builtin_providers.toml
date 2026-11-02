@@ -1,8 +1,8 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 30
-updated_at = "2026-11-01"
+serial = 31
+updated_at = "2026-11-02"
 
 # Gemini
 [providers.gemini]
@@ -1965,7 +1965,7 @@ effort = "high"
 
 [providers.openrouter.models."qwen/qwen3.8-27b"]
 id = "qwen/qwen3.8-27b"
-context = 1000000
+context = 1024000
 effort = "medium"
 
 [providers.openrouter.models."google/gemini-3.7-flash"]
