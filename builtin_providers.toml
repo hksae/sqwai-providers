@@ -1,8 +1,8 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 33
-updated_at = "2026-11-04"
+serial = 34
+updated_at = "2026-11-05"
 
 # Gemini
 [providers.gemini]
@@ -1570,6 +1570,11 @@ id = "tencent/hy4"
 context = 1048576
 effort = "high"
 
+[providers.openrouter.models."ricursiveai/ripple-65b-preview"]
+id = "ricursiveai/ripple-65b-preview"
+context = 1048576
+effort = "off"
+
 [providers.openrouter.models."stealth/crouton-alpha"]
 id = "stealth/crouton-alpha"
 context = 1048576
@@ -1988,10 +1993,4 @@ effort = "high"
 id = "qwen/qwen3.8-27b"
 context = 1024000
 effort = "medium"
-
-[providers.openrouter.models."google/gemini-3.7-flash"]
-id = "google/gemini-3.7-flash"
-context = 1048576
-effort = "medium"
-pdf = true
 
