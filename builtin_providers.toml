@@ -1,8 +1,8 @@
 # Monotonic freshness stamp, bumped by scripts/update_providers.py on
 # every content change (never by hand). The client compares serials, not
 # dates: a replayed old file never wins, and missing serial reads as 0.
-serial = 34
-updated_at = "2026-11-05"
+serial = 35
+updated_at = "2026-11-07"
 
 # Gemini
 [providers.gemini]
@@ -1565,6 +1565,16 @@ base_url = "https://openrouter.ai/api/v1"
 api_key_env = "OPENROUTER_API_KEY"
 continuation = true
 
+[providers.openrouter.models."liquid/lfm-3-1.7b:free"]
+id = "liquid/lfm-3-1.7b:free"
+context = 262144
+effort = "medium"
+
+[providers.openrouter.models."liquid/lfm-3-1.7b"]
+id = "liquid/lfm-3-1.7b"
+context = 262144
+effort = "medium"
+
 [providers.openrouter.models."tencent/hy4"]
 id = "tencent/hy4"
 context = 1048576
@@ -1983,14 +1993,4 @@ effort = "high"
 id = "~z-ai/glm-latest"
 context = 1048576
 effort = "high"
-
-[providers.openrouter.models."z-ai/glm-5.3"]
-id = "z-ai/glm-5.3"
-context = 1048576
-effort = "high"
-
-[providers.openrouter.models."qwen/qwen3.8-27b"]
-id = "qwen/qwen3.8-27b"
-context = 1024000
-effort = "medium"
 
